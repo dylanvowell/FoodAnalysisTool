@@ -8,8 +8,8 @@ Due to complexities with conversion factors, (methodology in conversion factors 
 
 
 **Steps for looking up food:** 
-  1. Input the food product(s) included in your meal
-  2. Input the total quantity in grams of the food included in your meal
+  1. Input the food product(s) included in your meal.
+  2. Input the total quantity in grams of the food included in your meal.
   3. Input the state your food is in (dried, raw, cooked.) - I will attempt to include this functionality, however I am unsure whether or not this can be achieved with the data provided. More analysis of the data will be required. 
 
 I plan on displaying three methods for extracting and cleaning the data. [FoodDataCentral](https://fdc.nal.usda.gov/) is a site which provides users with the ability to either download their food data directly in .csv format, or provides an API for users to use for pulling food data. I will attempt to pull and clean the data using three different ways: 
