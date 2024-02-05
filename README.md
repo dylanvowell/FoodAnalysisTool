@@ -21,7 +21,11 @@ I plan on displaying three methods for extracting and cleaning the data. [FoodDa
 # Tools Used
 **Power Query** - Combining data sheets together so all relevant information is in one place<br>
 **Python** - Language used to write the scripts<br>
-**Jupyter Notebook** - IDE used 
+**Jupyter Notebook** - IDE used <br>
+[**FoodData Central**](https://fdc.nal.usda.gov) - Data for food nutritional values<br>
+[**FDA Dietary Guidelines**](https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels) - resource for identifying daily recommended intake values for specific vitamins and minerals<br>
+[**FoodData Data Dictionary**](https://fdc.nal.usda.gov/portal-data/external/dataDictionary) - Data dictionary for the many column headers that exist within the data FoodData Central provides
+
 
 ## Preliminary Phase - Data Exploration
 
