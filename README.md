@@ -36,11 +36,15 @@ Each worksheet has a specific role in identifying the food, nutritional informat
 <br>
 The first challenge is to identify what each column header means - "id" shows up in multiple sheets, but has different id types (4 digit, 5 digit, and 6 digit number codes) depending on what sheet is being viewed. I will need to indentify the primary/foriegn keys present in the following sheets required for the initial functions of this project: <br>
 <br>
-**food.csv** - Data indicating the fdc_id number associated with each type of food - e.g "HUMMAS, SABRA CLASSIC"
+**food.csv** - Data indicating the fdc_id number associated with each type of food - e.g "HUMMAS, SABRA CLASSIC".
 <br>
-**food_nutrient.csv** - Data indicating the type of nutrient (nutrient_id), fdc_id (same id from food.csv indicating the type of food)
+**food_nutrient.csv** - Data indicating the type of nutrient (nutrient_id), fdc_id (same id from food.csv indicating the type of food).
 <br>
 **food_portion.csv** - Data indicating the weight in grams of the food used in calculating nutrient values. Data also includes the fdc_id found in the previously listed files. 
+<br>
+**nutrient.csv** - Data indicating the nutrients present in food items.
+<br>
+**measure_unit.csv** - Data indicating measurments alongside their respective measurement codes.
 
 ## Additional Data That May Be Used
 
@@ -59,7 +63,6 @@ There are several other files that may include relevant information for my purpo
 <br>
 **food_nutrient_conversion_factor.csv** - Data listing the food_nutrient_conversion_factor_id and the fdc_id, which allows me to find macro data for each food item listed in food.csv. 
 
-TEST EDIT
 
 
 
