@@ -1,0 +1,9 @@
+# Progress Checklist
+
+- [ ] Explore and choose what data should be included 
+- [ ] Create dataframes for .csv files and merge dataframes (example: merge nutrient.csv and food_nutrient.csv so the nutrient name is in the same table as the nutrient contents per food item)
+- [ ] Create code that allows for a lookup function between the food dataframe and the nutrient dataframe 
+- [ ] Implement an input feature so users can input food items to see the subsequent components in each item
+- [ ] Allow users to input more than one food, with a command to run what they have input already
+- [ ] Utilize the calorie conversion tables to also allow users to see the total calories present per 100g of food they input
+- [ ] Allow users to choose different measurments (less than 100g, imperial measurements)
