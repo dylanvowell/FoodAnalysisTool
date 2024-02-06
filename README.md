@@ -51,8 +51,6 @@ The first challenge is to identify what each column header means - "id" shows up
 There are several other files that may include relevant information for my purposes, but further research into their contents is needed. They are listed below: 
 <br> 
 <br>
-**measure_unit.csv** - Data indicating a unit of measure with it's assigned id number.
-<br>
 **food_attribute.csv** - Data indicating Ontology information including name, ID, name for FDC item, ID for FDC item, NCBI Taxon. This would provide users with a way to look up official ontology for foods used by the USDA and FDA. 
 <br>
 *Example values shown in below screenshot for HUMMUS, commercial:**
