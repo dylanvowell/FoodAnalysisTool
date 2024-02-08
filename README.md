@@ -47,6 +47,7 @@ The first challenge is to identify what each column header means - "id" shows up
 
 # Future Improvements
 
+- Re-work nutrient volumes so I can only display the nutrients that are above 0 in the final dataframe output
 - Add in function that would allow a user to either choose a food item or nutrient
   - searching for a nutrient would return the top 10 foods that have a large amount of that nutrient
 - Allow a user to input more than one food, and then output a dataframe with the sum of all nutrients in the foods they input
