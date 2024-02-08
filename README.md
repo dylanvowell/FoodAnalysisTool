@@ -1,22 +1,5 @@
 # Overview
-I am creating a tool that allows a user to input what food(s) they are currently eating in a single meal. It will then scan a file containing all relevant information - nutrients (*vitamins and minerals*), calories, macros - and output those values based on the amount of food you ate. It will also show you, in a percentage, how close you are to fulfilling the recommended amount of nutrients you should be ingesting per day. <br><br>***Note: Calories and Macros will be part of a later phase as this information is either not completely available with the data provided by FoodDataCentral or will require additional calculations to be built into the project.***
-
-For the first phase of my project, I will only be looking to write code that cleans the data and prepares it for the lookup functions. My first goal will be to successfully write code that allows users to simply look up nutrient values in each food product. A user will then be able to compare what they are seeing to what the recommended amount of nutrients are for adults. The FDA does not have separate calculations for gender or biological sex, so all values listed here are the recommended values based on FDA guidelines: [FDA.gov](https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels). 
-
-Due to complexities with conversion factors, (methodology in conversion factors can be found here - [FICRCD Methodology and User Guide](https://www.ars.usda.gov/ARSUserFiles/80400530/pdf/ficrcd/FICRCD%20Methodology%20and%20User%20Guide.pdf), I will attempt to break up this project into phases - **Data Exploration** being a preliminary phase one. 
-
-
-
-**Steps for looking up food:** 
-  1. Input the food product(s) included in your meal.
-  2. Input the total quantity in grams of the food included in your meal.
-  3. Input the state your food is in (dried, raw, cooked.) - I will attempt to include this functionality, however I am unsure whether or not this can be achieved with the data provided. More analysis of the data will be required. 
-
-I plan on displaying three methods for extracting and cleaning the data. [FoodDataCentral](https://fdc.nal.usda.gov/) is a site which provides users with the ability to either download their food data directly in .csv format, or provides an API for users to use for pulling food data. I will attempt to pull and clean the data using three different ways: 
-  1. Download the .csv file directly from FoodDataCentral and use Power Query to join tables. The resulting tables will then be queried using python.
-  2. Download the .csv file directly from FoodDataCentral and use Python for all ETL processes.
-  3. Use the API from FoodDataCentral and use Python to call the API service for any foods users input into the program.
-  4. (Possibly) Install a SQL server onto my machine and load the data needed into SQL. Use SQL to create needed tables. Use Python to then pull tables from SQL into dataframes for use.  - ***This is a possible outcome depending on how difficult it is for me to achieve the first three steps***
+I wanted to create a tool that a user can use to look up a specific food item from the FoodData Center database file and output the vitamins and minerals listed in that food. This requires loading in .csv files as dataframes, merging the dataframes on primary/foreign keys, then creating several functions used to grab the relevant data according to a user input.
 
 # Tools Used
 **Power Query** - Combining data sheets together so all relevant information is in one place<br>
@@ -27,7 +10,7 @@ I plan on displaying three methods for extracting and cleaning the data. [FoodDa
 [**FoodData Data Dictionary**](https://fdc.nal.usda.gov/portal-data/external/dataDictionary) - Data dictionary for the many column headers that exist within the data FoodData Central provides
 
 
-## Preliminary Phase - Data Exploration
+## Data Exploration Phase
 
 The data consists of 23 .csv files as shown below: 
 ![Food Data Files](https://github.com/dylanvowell/FoodAnalysisTool/assets/95980792/1ea9048b-3378-4630-be39-bb2af3b55dd7)
@@ -46,22 +29,31 @@ The first challenge is to identify what each column header means - "id" shows up
 <br>
 **measure_unit.csv** - Data indicating measurments alongside their respective measurement codes.
 
-## Additional Data That May Be Used
+## Shaping the Data for Querying
 
-There are several other files that may include relevant information for my purposes, but further research into their contents is needed. They are listed below: 
-<br> 
-<br>
-**food_attribute.csv** - Data indicating Ontology information including name, ID, name for FDC item, ID for FDC item, NCBI Taxon. This would provide users with a way to look up official ontology for foods used by the USDA and FDA. 
-<br>
-*Example values shown in below screenshot for HUMMUS, commercial:**
-<br>
-![Information for HUMMUS, commercial](https://github.com/dylanvowell/FoodAnalysisTool/assets/95980792/1404d231-9b6b-45fa-9359-f633b9472f5e)
-<br>
-**food_calorie_conversion_factor.csv** - Data showing Macro values, using a food_nutrient_conversion_factor_id.
-<br>
-**food_nutrient_conversion_factor.csv** - Data listing the food_nutrient_conversion_factor_id and the fdc_id, which allows me to find macro data for each food item listed in food.csv. 
+- Created dataframes from the .csv files listed above.
+- Identified primary and foreign key columns in each dataframe
+- Merged all dataframes into one that included the food item and nutrient values/amounts
+- Grouped dataframe rows based on the food type, then aggregated the data into multiple sub-dataframes where each food item was it's own dataframe
 
 
+## Creating Function for Food Item Querying 
 
+- Created function to look up a specific food item using both fuzzywuzzy and regex
+  - if there are more than one matches containing the specified food item string, it lists all of the matches with an idex number and food item
+  - user then inputs the index number of the food item they are searching for
+  - function outputs the user's choice as the food item and displays a dataframe of the nutrients
+ 
+
+# Future Improvements
+
+- Add in function that would allow a user to either choose a food item or nutrient
+  - searching for a nutrient would return the top 10 foods that have a large amount of that nutrient
+- Allow a user to input more than one food, and then output a dataframe with the sum of all nutrients in the foods they input
+- Display how much of each nutrient is still required to hit the FDA's daily recommended value.
+  - Show negative values when a user has less than the amount
+  - Show positive values when a user is over the amount
+ 
+Thank you for stopping by! 
 
 
